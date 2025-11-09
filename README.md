@@ -1,16 +1,30 @@
-# React + Vite
+# TravelEase – Vehicle Booking & Trip Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** http://localhost:5173/
 
-Currently, two official plugins are available:
+## Description
+TravelEase is a full-stack vehicle booking and trip management platform.  
+Users can explore, book, and manage vehicles for personal or group trips.  
+Vehicle owners can list and manage their own vehicles through a secure dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Browse vehicles by category (Sedan, SUV, Electric, Van) and location
+- Book vehicles for trips and manage bookings
+- Owner dashboard to add, update, and remove vehicles
+- Secure Firebase Authentication
+- Mobile-friendly responsive design
+- Search & Filter vehicles by price or availability
+- Real-time booking status updates
 
-## React Compiler
+## Technologies Used
+- **Frontend:** React, Tailwind CSS, React Router
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** Firebase
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rimiakter4/Assignment-10-TravelEase-client.git
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   
