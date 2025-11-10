@@ -6,7 +6,7 @@ const Fotter = () => {
  
 <div>
     
-        <footer className="footer   footer-horizontal bg-no-repeat bg-cover bg-blue-900   bg-center  footer-center text-white   bg-opacity-5000 p-10">
+        <footer className="footer   footer-horizontal bg-no-repeat bg-cover   bg-linear-to-l  from-blue-500  blue-700 to-blue-500    bg-center  footer-center text-white   bg-opacity-5000 p-10">
         
   <aside>
     <div>
