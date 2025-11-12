@@ -16,7 +16,7 @@ const About = () => {
     
          <button
         
-          className="bg-indigo-600 hover:bg-indigo-700 transition duration-300 text-white font-semibold px-6 py-3 rounded-lg shadow-lg"
+          className="bg-sky-500 hover:bg-sky-700 transition duration-300 text-white font-semibold px-6 py-3 rounded-lg shadow-lg"
         >
          <NavLink to=''>Learn More </NavLink> 
         </button>

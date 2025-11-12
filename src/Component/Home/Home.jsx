@@ -11,7 +11,7 @@ const Home = () => {
     return (
         <div className='bg-blue-50'>
       <Banner></Banner>
-      <section className='w-11/12 mx-auto my-10 '>
+      <section className='w-11/12  mx-auto h-full my-10 '>
       <Suspense fallback={<span className="loading loading-dots loading-xl"></span>
 }> <LatestVehicles vehiclesPromiss={vehiclesPromiss}></LatestVehicles></Suspense>
 

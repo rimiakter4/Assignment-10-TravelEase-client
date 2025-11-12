@@ -2,12 +2,12 @@
 
 import { Link, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { useContext, useState } from 'react';
 import { Authcontext } from '../../Context/AuthProvider';
 
 const Regiter = () => {
-       const {  creatUser, setUser, updateUser } = useContext(Authcontext);
+       const {  creatUser, setUser, updateUser ,googlelogin} = useContext(Authcontext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false); 
@@ -33,22 +33,11 @@ const newuser={name,email,photo}
     } else {
       setPasswordError("");
     }
+    
 
     creatUser(email, password)
       .then(() => {
-        // const user = result.user;
-
-        // updateUser({
-        //   displayName: name, 
-        //   photoURL: photo
-        // })
-        //   .then(() => {
-        //     setUser({ ...user, displayName: name, photoURL: photo });
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //     setUser(user);
-        //   });
+     
 
         toast.success(" Registration Successful!");
         form.reset();
@@ -70,7 +59,42 @@ const newuser={name,email,photo}
         console.log(data)
       })
 
+       
   };
+ 
+
+  const handelgoogle = () => {
+  googlelogin()
+    .then((result) => {
+      const user = result.user;
+      const newUser = {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL
+      };
+
+   
+      fetch('http://localhost:3000/users', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(newUser)
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Saved user:", data);
+        });
+
+      toast.success("Login Successfully!");
+      navigate('/');
+    })
+    .catch((err) => {
+      toast.error("Google Login Failed: " + err.message);
+    });
+};
+
+
 
     return (
         <div>
@@ -117,6 +141,16 @@ const newuser={name,email,photo}
             {passwordError && <p className="text-red-600">{passwordError}</p>}
 
             <button type='submit' className="btn mt-4 w-full">Register</button>
+            <p className='text-center text-xl font-bold mt-3'>OR</p>
+            
+                        <button
+                          type="button"
+                          onClick={handelgoogle}
+                          className='btn w-full mt-2 flex items-center justify-center gap-2'
+                        >
+                          <FaGoogle /> LogIn With Google
+                        </button>
+            
             <p className='text-center font-semibold text-white mt-2'>
               Already Have An Account? <Link to='/login' className='text-red-500'>Login</Link>
             </p>

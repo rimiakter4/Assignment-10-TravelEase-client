@@ -78,7 +78,7 @@ const links = <>
     return (
         <div >
              <div >
-         <div className="navbar  bg-linear-to-l  from-blue-500  blue-700 to-blue-500  shadow-sm">
+         <div className="navbar  bg-linear-to-l from-sky-500 to-sky-300  shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -108,11 +108,11 @@ const links = <>
   </div>
   <div className="navbar-end gap-3">
 {
-  user?'': <NavLink to='/register'className="btn  bg-linear-to-l  lg:w-[100px] w-[100px] bg-indigo-600 hover:bg-indigo-700  text-white text-semibold">Register </NavLink>
+  user?'': <NavLink to='/register'className="btn  bg-linear-to-l  lg:w-[100px] w-[100px]  bg-sky-700 hover:bg-sky-800    text-white text-semibold">Register </NavLink>
 }
     
     {
-      user? <button  onClick={handellogout} className="btn  bg-linear-to-l lg:w-[100px] w-[100px] bg-indigo-600 hover:bg-indigo-700   text-white text-semibold">Log out</button> : <NavLink to='/login'className="btn  bg-linear-to-l lg:w-[100px] w-[100px] bg-indigo-600 hover:bg-indigo-700   text-white text-semibold">Log in </NavLink> 
+      user? <button  onClick={handellogout} className="btn  bg-linear-to-l lg:w-[100px] w-[100px] bg-sky-700 hover:bg-sky-700  text-white text-semibold">Log out</button> : <NavLink to='/login'className="btn  bg-linear-to-l lg:w-[100px] w-[100px]   bg-sky-700 hover:bg-sky-700     text-white text-semibold">Log in </NavLink> 
     }
       
    
