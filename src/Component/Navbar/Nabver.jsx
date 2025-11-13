@@ -24,7 +24,7 @@ const links = <>
     <NavLink
       to="/"
       className={({ isActive }) =>
-        `font-semibold text-white ${isActive ? 'underline underline-offset-4' : ''}`
+        `font-semibold text-white text-[16px] ${isActive ? 'underline underline-offset-4' : ''}`
       }
     >
       Home
@@ -34,7 +34,7 @@ const links = <>
     <NavLink
       to="/allvehicles"
       className={({ isActive }) =>
-        `font-semibold text-white ${isActive ? 'underline underline-offset-4' : ''}`
+        `font-semibold text-white text-[16px] ${isActive ? 'underline underline-offset-4' : ''}`
       }
     >
       All Vehicles
@@ -42,9 +42,9 @@ const links = <>
   </li>
   <li>
     <NavLink
-      to="/mybids"
+      to="/addvehile"
       className={({ isActive }) =>
-        `font-semibold text-white ${isActive ? 'underline underline-offset-4' : ''}`
+        `font-semibold text-[16px] text-white ${isActive ? 'underline underline-offset-4' : ''}`
       }
     >
       Add Vehicle
@@ -52,9 +52,9 @@ const links = <>
   </li>
   <li>
     <NavLink
-      to="/mybids"
+      to="/myvehicles"
       className={({ isActive }) =>
-        `font-semibold text-white ${isActive ? 'underline underline-offset-4' : ''}`
+        `font-semibold text-white  text-[16px] ${isActive ? 'underline underline-offset-4' : ''}`
       }
     >
       My Vehicles
@@ -64,7 +64,7 @@ const links = <>
     <NavLink
       to="/mybids"
       className={({ isActive }) =>
-        `font-semibold text-white ${isActive ? 'underline underline-offset-4' : ''}`
+        `font-semibold text-white text-[16px] ${isActive ? 'underline underline-offset-4' : ''}`
       }
     >
       My Bookings

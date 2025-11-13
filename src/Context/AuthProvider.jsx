@@ -48,7 +48,7 @@ return signInWithPopup(auth,provider)
     const authinfo={
  creatUser,
 user,
-loading,sininuser,logout,googlelogin,resetPassword
+loading,sininuser,logout,googlelogin,resetPassword,setLoading
     }
     return (
         <Authcontext.Provider value={authinfo} >{children}</Authcontext.Provider>
