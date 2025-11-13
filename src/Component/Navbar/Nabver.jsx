@@ -62,7 +62,7 @@ const links = <>
   </li>
   <li>
     <NavLink
-      to="/mybids"
+      to="/mybooking"
       className={({ isActive }) =>
         `font-semibold text-white text-[16px] ${isActive ? 'underline underline-offset-4' : ''}`
       }

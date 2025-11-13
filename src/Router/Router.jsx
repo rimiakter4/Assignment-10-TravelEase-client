@@ -9,6 +9,11 @@ import VehiclesDetails from "../Pages/VehiclesDetails";
 import AddVehiles from "../Component/AddVehiles/AddVehiles";
 import MyVehicles from "../Component/MyVehicles/MyVehicles";
 import UpdateVehicles from "../Component/Updatevehicles/UpdateVehicles";
+import MyBookings from "../Component/myBooking/MyBooking";
+import PrivateRoute from "../Context/Praivateroute";
+import Erorr from "../Pages/Erorr/Erorr";
+import DateFns from "../Component/DateFns";
+
 
 
 
@@ -20,6 +25,7 @@ const router=createBrowserRouter([
      {
     path: "/",
     Component:Root,
+    errorElement:<Erorr></Erorr>,
     children:[{
       index: true,
        Component: Home 
@@ -40,28 +46,38 @@ const router=createBrowserRouter([
 },
 {
     path:'/vehiclesDetails/:_id',
+   
+
     loader:({params})=>fetch(`http://localhost:3000/all-vehicles/${params._id}`),
-    Component:VehiclesDetails
-},{
+  element:<PrivateRoute><VehiclesDetails></VehiclesDetails></PrivateRoute>
+},
+
+
+{
   path:'/addvehile',
-  Component:AddVehiles
+  element:<PrivateRoute><AddVehiles></AddVehiles> </PrivateRoute> 
 },
 {
   path: "/myvehicles",
-  element: <MyVehicles />,
-},
+ element:<PrivateRoute><MyVehicles></MyVehicles></PrivateRoute>},
 
 {
   path:'/myvehicles/:_id',
      loader:({params})=>fetch(`http://localhost:3000/all-vehicles/${params._id}`),
-  Component:MyVehicles
+  element: <PrivateRoute> <MyVehicles></MyVehicles></PrivateRoute>
 },{
-  path:'/update/:_id',
+  path:'/update/:_id',                                 
    loader:({params})=>fetch(`http://localhost:3000/all-vehicles/${params._id}`),
   Component:UpdateVehicles
+},{
+  path:'mybooking',
+element:<PrivateRoute><MyBookings></MyBookings></PrivateRoute>
 }
 ]
-  },
+  },{
+    path:'datefns',
+    element:<DateFns></DateFns>
+  }
 
 ])
 export default router

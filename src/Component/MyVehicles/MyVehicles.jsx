@@ -55,7 +55,7 @@ const handelremove = (id) => {
         My Vehicles
       </h2>
 
-      <div className="overflow-x-auto border-0 rounded-lg shadow">
+      <div className="overflow-x-auto border-0 mb-37 rounded-lg shadow">
         <table className="min-w-full divide-y divide-gray-300">
           <thead className="bg-gradient-to-b from-sky-400 to-blue-500">
             <tr className="text-white text-xl">
