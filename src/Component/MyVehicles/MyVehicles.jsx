@@ -103,9 +103,9 @@ const MyVehicles = () => {
                       </Link>
                       <Link to={`/update/${vehicle._id}`} className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">                    Update
                       </Link>
-                      <button onClick={() => handelremove(vehicle._id)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
+                      <Link onClick={() => handelremove(vehicle._id)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
                         Delete
-                      </button>
+                      </Link>
                     </td>
                   </motion.tr>
                 ))

@@ -1,4 +1,4 @@
-/* src/styles/variables.css */
+
 
 /* Light theme (default) */
 :root {
@@ -20,7 +20,6 @@
   --btn-text-color: #ffffff;
 }
 
-/* Optional: body, headings, paragraph use variables */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
