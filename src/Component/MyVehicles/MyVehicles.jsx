@@ -13,7 +13,10 @@ const MyVehicles = () => {
     if (user?.email) {
       fetch(`http://localhost:3000/my-vehicles?email=${user.email}`)
         .then((res) => res.json())
-        .then((data) => setVehicles(data))
+        .then((data) => {
+          const sortedVehicles = data.sort((a, b) => b.pricePerDay - a.pricePerDay);
+        setVehicles(sortedVehicles);
+          setVehicles(data)})
         .catch((err) => console.error(err));
     }
   }, [user]);
