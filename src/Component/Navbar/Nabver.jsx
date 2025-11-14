@@ -24,6 +24,7 @@ const Nabver = () => {
   return (
     <div>
       <div className="navbar bg-linear-to-l from-sky-500 to-sky-300 shadow-sm">
+        {/* LEFT */}
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,58 +32,58 @@ const Nabver = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
             </div>
-            <ul tabIndex="-1" className="menu menu-sm dropdown-content nav bg-black rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <ul tabIndex="-1" className="menu menu-sm dropdown-content nav bg-black rounded-box z-10 mt-3 w-52 p-2 shadow">
               {links}
             </ul>
           </div>
           <img className='lg:w-[90px] w-[70px] rounded-full' src={nabimg} alt="" />
         </div>
 
+        {/* MIDDLE */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
 
-        <div className="navbar-end gap-3">
+        {/* RIGHT */}
+        <div className="navbar-end gap-4">
 
+          {/* USER PROFILE IF LOGGED IN */}
+          {user && (
+            <div className="relative group cursor-pointer">
+              <img
+                src={user.photoURL}
+                alt="profile"
+                className="w-12 h-12 rounded-full border-2 border-white transition duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-sky-300"
+              />
+              <span
+                className="
+                  absolute opacity-0 group-hover:opacity-100
+                  transition-all duration-300 ease-in-out
+                  bg-black/80 backdrop-blur-md text-white
+                  text-sm px-4 py-1 rounded-xl shadow-lg
+                  whitespace-nowrap
+                  left-1/2 -translate-x-1/2
+                  top-14 group-hover:top-16
+                "
+              >
+                {user.displayName}
+              </span>
+            </div>
+          )}
+
+      
           {!user && (
-            <NavLink to='/register' className="btn bg-linear-to-l lg:w-[100px] w-[100px] bg-sky-700 hover:bg-sky-800 text-white text-semibold">
+            <NavLink to='/register' className="btn bg-sky-700 hover:bg-sky-800 text-white font-semibold w-[100px]">
               Register
             </NavLink>
           )}
 
-{user && (
-  <div className="relative group flex items-center cursor-pointer z-50">
-    <img
-      src={user.photoURL}
-      alt="profile"
-      className="w-12 h-12 rounded-full border-2 border-white transition duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-sky-300"
-    />
-
-
-    <span
-      className="
-        absolute z-50
-        opacity-0 group-hover:opacity-100
-        transition-all duration-300 ease-in-out
-        bg-black/70 backdrop-blur-md text-white
-        text-sm px-4 py-1 rounded-xl shadow-lg
-        whitespace-nowrap
-        left-1/2 -translate-x-1/2
-        top-14 group-hover:top-16
-      "
-    >
-      {user.displayName}
-    </span>
-  </div>
-)}
-
-
           {user ? (
-            <button onClick={handellogout} className="btn bg-linear-to-l lg:w-[100px] w-[100px] bg-sky-700 hover:bg-sky-700 text-white text-semibold">
+            <button onClick={handellogout} className="btn bg-sky-700 hover:bg-sky-800 text-white font-semibold w-[100px]">
               Log out
             </button>
           ) : (
-            <NavLink to='/login' className="btn bg-linear-to-l lg:w-[100px] w-[100px] bg-sky-700 hover:bg-sky-700 text-white text-semibold">
+            <NavLink to='/login' className="btn bg-sky-700 hover:bg-sky-800 text-white font-semibold w-[100px]">
               Log in
             </NavLink>
           )}
