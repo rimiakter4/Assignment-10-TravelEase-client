@@ -1,14 +1,4 @@
-// import React from 'react';
 
-// const MyBooking = () => {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// };
-
-// export default MyBooking;
 import React, { useEffect, useState, useContext } from "react";
 import { Authcontext } from "../../Context/AuthProvider";
 import { Link } from "react-router";
@@ -20,7 +10,6 @@ const MyBookings = () => {
 
   useEffect(() => {
     if (user?.email) {
-    //   fetch(`http://localhost:3000/my-bookings?email=${user.email}`)
             fetch('http://localhost:3000/bookings')
         .then((res) => res.json())
         .then((data) => {
