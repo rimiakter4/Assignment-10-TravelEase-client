@@ -1,14 +1,4 @@
-// import React from 'react';
 
-// const Login = () => {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// };
-
-// export default Login;
 
 import React, { useContext, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
