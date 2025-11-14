@@ -30,7 +30,7 @@ const TopCatagories = () => {
   ];
 
   return (
-    <section className="py-16 px-6 md:px-20 rounded-2xl bg-gray-50 text-center">
+    <section className="py-16 px-6 md:px-20 rounded-2xl text-center">
       <h2 className="text-5xl font-bold mb-12 text-gray-800">Top Categories</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">

@@ -44,7 +44,6 @@ const Nabver = () => {
 
         <div className="navbar-end gap-3">
 
-          {/* Register button if no user */}
           {!user && (
             <NavLink to='/register' className="btn bg-linear-to-l lg:w-[100px] w-[100px] bg-sky-700 hover:bg-sky-800 text-white text-semibold">
               Register
@@ -59,7 +58,7 @@ const Nabver = () => {
       className="w-12 h-12 rounded-full border-2 border-white transition duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-sky-300"
     />
 
-    {/* Tooltip name */}
+
     <span
       className="
         absolute z-50
@@ -78,8 +77,6 @@ const Nabver = () => {
 )}
 
 
-
-          {/* Login / Logout */}
           {user ? (
             <button onClick={handellogout} className="btn bg-linear-to-l lg:w-[100px] w-[100px] bg-sky-700 hover:bg-sky-700 text-white text-semibold">
               Log out

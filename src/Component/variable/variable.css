@@ -1,0 +1,46 @@
+/* src/styles/variables.css */
+
+/* Light theme (default) */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #1a1a1a;
+  --heading-color: #111827;
+  --paragraph-color: #4b5563;
+  --btn-bg-color: #007BFF;
+  --btn-text-color: #ffffff;
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  --text-color: #f5f5f5;
+  --heading-color: #e5e7eb;
+  --paragraph-color: #d1d5db;
+  --btn-bg-color: #1e40af;
+  --btn-text-color: #ffffff;
+}
+
+/* Optional: body, headings, paragraph use variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+}
+
+p {
+  color: var(--paragraph-color);
+}
+
+button {
+  background: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

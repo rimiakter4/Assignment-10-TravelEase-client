@@ -41,23 +41,24 @@ const Banner = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <motion.h1
+        <motion.h4
           className="text-3xl md:text-6xl font-bold mb-4"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           Find Your Perfect Ride
-        </motion.h1>
+        </motion.h4>
 
-        <motion.p
-          className="text-lg md:text-2xl mb-6 max-w-xl"
+        <motion.span
+          className="text-lg md:text-2xl mb-6 max-w-xl ]"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           Browse a wide range of vehicles and start your journey today with ease and comfort.
-        </motion.p>
+        </motion.span>
+  
 
         <motion.button
           className="bg-sky-900 hover:bg-sky-700 transition duration-300 text-white font-semibold px-6 py-3 rounded-lg shadow-lg"
@@ -70,6 +71,9 @@ const Banner = () => {
           <NavLink to='allvehicles'>All Vehicles</NavLink> 
         </motion.button>
       </motion.div>
+      
+
+
     </section>
   );
 };

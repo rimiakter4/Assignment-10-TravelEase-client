@@ -14,7 +14,7 @@ const Vehicle = ({vehicle}) => {
       alt="Shoes" />
  
   <div className="card-body p-5 ">
-    <h2 className="card-title">{vehicleName}</h2>
+    <h3 className="card-title">{vehicleName}</h3>
     <p>{description}</p>
     <div className="card-actions justify-end">
       <div className="badge outline-1 outline-sky-800 ">Perday : ${pricePerDay}</div>

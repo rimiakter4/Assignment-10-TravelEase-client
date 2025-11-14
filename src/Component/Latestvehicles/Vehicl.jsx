@@ -13,7 +13,7 @@ const Vehicl = ({vehicle}) => {
       alt="Shoes" />
  
   <div className="card-body p-5 ">
-    <h2 className="card-title">{vehicleName}</h2>
+    <h3 className="card-title">{vehicleName}</h3>
     <p>{description}</p>
     <div className="card-actions justify-end my-3">
       <Link to={`/vehiclesDetails/${_id}`} className="btn w-full text-white hover:bg-sky-400  bg-sky-600">View Details</Link>
