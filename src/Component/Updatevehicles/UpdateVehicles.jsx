@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
 
 const UpdateVehicle = () => {
   const vehicleData = useLoaderData(); 
   const [vehicle, setVehicle] = useState(vehicleData);
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setVehicle({ ...vehicle, [e.target.name]: e.target.value });
   };
@@ -26,7 +26,8 @@ const UpdateVehicle = () => {
 
       const updatedData = await res.json();
       setVehicle(updatedData); 
-      toast.success('Vehicle updated successfully!'); 
+      toast.success('Vehicle updated successfully!');
+         navigate("/myvehicles") 
     } catch (err) {
       console.error(err);
       toast.error('Failed to update vehicle.');

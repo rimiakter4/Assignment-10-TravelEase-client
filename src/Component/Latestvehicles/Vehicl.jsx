@@ -6,7 +6,7 @@ const Vehicl = ({vehicle}) => {
     const {coverImage,description,vehicleName,_id}=vehicle
     return (
         <div>
-            <div className="card rounded-2xl bg-base-100 w-96 shadow-sm">
+            <div className="card rounded-2xl bg-base-100 lg:w-96  shadow-sm">
   
     <img className='h-[300px] rounded-t-2xl'
       src={coverImage}

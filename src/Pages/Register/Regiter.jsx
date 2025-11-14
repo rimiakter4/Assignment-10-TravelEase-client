@@ -95,11 +95,8 @@ const newuser={name,email,photo}
 };
 
 
-
     return (
         <div>
-          
-
     <div>
       <div className="card 
   bg-gradient-to-b from-blue-700 to-sky-700 

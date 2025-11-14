@@ -21,7 +21,7 @@ const VehiclesDetails = () => {
 
 
   const { user } = useContext(Authcontext);
-
+ 
   const handleBookNow = () => {
     if (!user) {
       toast.warning("Please login to book this vehicle!");
@@ -93,7 +93,7 @@ const VehiclesDetails = () => {
         </div>
       </div>
 
-      {/* Details / Features Section */}
+      
       <div className="mt-8 grid md:grid-cols-2 gap-6">
         {/* Owner Info */}
         <div className="bg-gradient-to-l from-sky-300 to-indigo-200 rounded-2xl p-10 shadow-lg transform transition-transform duration-300 hover:-translate-y-2 hover:scale-105">
