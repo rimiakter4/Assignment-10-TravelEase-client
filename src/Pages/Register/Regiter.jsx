@@ -49,7 +49,7 @@
 //       });
 
 
-//        fetch('http://localhost:3000/users',{
+//        fetch('http://localhost:5174/users',{
 //         method:'POST',
 //         headers:{
 //     'content-type':'application/json'
@@ -74,7 +74,7 @@
 //       };
 
    
-//       fetch('http://localhost:3000/users', {
+//       fetch('http://localhost:5174/users', {
 //         method: 'POST',
 //         headers: {
 //           'content-type': 'application/json'
@@ -210,7 +210,7 @@ const Regiter = () => {
             setUser({ ...loggedUser, displayName: name, photoURL: photo });
 
             // Save user to database
-            fetch('http://localhost:3000/users', {
+            fetch('http://localhost:5174/users', {
               method: 'POST',
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(newuser)
@@ -241,7 +241,7 @@ const Regiter = () => {
           photo: user.photoURL
         };
 
-        fetch('http://localhost:3000/users', {
+        fetch('http://localhost:5174/users', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(newUser)

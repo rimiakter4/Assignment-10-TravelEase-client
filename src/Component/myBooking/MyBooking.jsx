@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { Authcontext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
+import Vehicle from "../ALLVehicles/Vehicle";
 
 const MyBooking = () => {
   const { user } = useContext(Authcontext);
@@ -14,7 +15,7 @@ const MyBooking = () => {
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      fetch(`http://localhost:3000/bookings?email=${user.email}`)
+      fetch(`https://assignment-10-travelease.vercel.app/bookings?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setBookings(data))
         .catch((err) => console.error(err))
@@ -34,7 +35,7 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/bookings/${id}`, { method: "DELETE" })
+        fetch(`https://assignment-10-travelease.vercel.app/bookings/${id}`, { method: "DELETE" })
           .then(res => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -110,7 +111,7 @@ const MyBooking = () => {
                     </td>
                    <td className="px-4 mb-4 py-3 flex gap-2  justify-center items-center">
   <Link
-    to={`/vehiclesDetails/${booking.vehicleId}`}
+ to={`/vehiclesDetails/${booking.vehicleId}`}
     className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
   >
     View
@@ -162,7 +163,7 @@ const MyBooking = () => {
                     : "bg-gray-500"
                 } text-center`}>{booking.status}</span>
                 <div className="flex mb-3 gap-2   ">
-                  <Link to={`/vehiclesDetails/${booking.vehicleId}`} className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded flex-1 text-center">View</Link>
+                  <Link  to={`/vehiclesDetails/${booking.vehicleId}`} className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded flex-1 text-center">View</Link>
                   <button onClick={() => handleDelete(booking._id)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded flex-1 text-center">Delete</button>
                 </div>
               </motion.div>

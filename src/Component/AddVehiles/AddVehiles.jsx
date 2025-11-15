@@ -30,7 +30,7 @@ const AddVehicles = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/vehicles", {
+      const res = await fetch("https://assignment-10-travelease.vercel.app/vehicles", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newVehicle),

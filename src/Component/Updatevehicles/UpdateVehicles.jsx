@@ -16,7 +16,7 @@ const UpdateVehicle = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/all-vehicles/${vehicle._id}`, {
+      const res = await fetch(`https://assignment-10-travelease.vercel.app/all-vehicles/${vehicle._id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(vehicle),

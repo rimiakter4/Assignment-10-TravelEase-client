@@ -48,7 +48,7 @@ const router=createBrowserRouter([
     path:'/vehiclesDetails/:_id',
    
 
-    loader:({params})=>fetch(`http://localhost:3000/all-vehicles/${params._id}`),
+    loader:({params})=>fetch(`https://assignment-10-travelease.vercel.app/all-vehicles/${params._id}`),
   element:<PrivateRoute><VehiclesDetails></VehiclesDetails></PrivateRoute>
 },
 
@@ -63,21 +63,22 @@ const router=createBrowserRouter([
 
 {
   path:'/myvehicles/:_id',
-     loader:({params})=>fetch(`http://localhost:3000/all-vehicles/${params._id}`),
+     loader:({params})=>fetch(`https://assignment-10-travelease.vercel.app/all-vehicles/${params._id}`),
   element: <PrivateRoute> <MyVehicles></MyVehicles></PrivateRoute>
 },{
   path:'/update/:_id',                                 
-   loader:({params})=>fetch(`http://localhost:3000/all-vehicles/${params._id}`),
+   loader:({params})=>fetch(`https://assignment-10-travelease.vercel.app/all-vehicles/${params._id}`),
   Component:UpdateVehicles
 },{
   path:'mybooking',
 element:<PrivateRoute><MyBookings></MyBookings></PrivateRoute>
 }
 ]
-  },{
-    path:'datefns',
-    element:<DateFns></DateFns>
-  }
+  },
+  // {
+  //   path:'datefns',
+  //   element:<DateFns></DateFns>
+  // }
 
 ])
 export default router

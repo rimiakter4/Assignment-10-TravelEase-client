@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router"; // fixed
 import { Authcontext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,10 +13,12 @@ const MyVehicles = () => {
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      fetch(`http://localhost:3000/my-vehicles?email=${user.email}`)
+      fetch(`https://assignment-10-travelease.vercel.app/my-vehicles?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
-          const sortedVehicles = data.sort((a, b) => b.pricePerDay - a.pricePerDay);
+          const sortedVehicles = data.sort(
+            (a, b) => Number(b.pricePerDay) - Number(a.pricePerDay)
+          );
           setVehicles(sortedVehicles);
         })
         .catch((err) => console.error(err))
@@ -24,7 +26,7 @@ const MyVehicles = () => {
     }
   }, [user]);
 
-  const handelremove = (id) => {
+  const handleRemove = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -35,8 +37,8 @@ const MyVehicles = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/all-vehicles/${id}`, { method: "DELETE" })
-          .then(res => res.json())
+        fetch(`https://assignment-10-travelease.vercel.app/all-vehicles/${id}`, { method: "DELETE" })
+          .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
               Swal.fire("Deleted!", "Your vehicle has been deleted.", "success");
@@ -47,7 +49,6 @@ const MyVehicles = () => {
     });
   };
 
-  // Motion variants
   const rowVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -55,13 +56,13 @@ const MyVehicles = () => {
   };
 
   return (
-    <div className="p-8 mb-40 md:p-16">
+    <div className="p-8 md:p-16 mb-40">
       <h2 className="text-4xl md:text-5xl text-center text-sky-700 font-bold mb-8 md:mb-10">
         My Vehicles
       </h2>
 
-
-      <div className="hidden md:block    overflow-x-auto border-0  rounded-lg shadow">
+      {/* Desktop Table */}
+      <div className="hidden md:block overflow-x-auto border-0 rounded-lg shadow">
         <table className="min-w-full divide-y divide-gray-300">
           <thead className="bg-gradient-to-b from-sky-400 to-blue-500">
             <tr className="text-white text-xl">
@@ -75,7 +76,11 @@ const MyVehicles = () => {
           <tbody className="bg-white divide-y divide-gray-200">
             <AnimatePresence>
               {loading ? (
-                <tr><td colSpan="5" className="text-center py-6">Loading...</td></tr>
+                <tr>
+                  <td colSpan="5" className="text-center py-6">
+                    Loading...
+                  </td>
+                </tr>
               ) : vehicles.length > 0 ? (
                 vehicles.map((vehicle, index) => (
                   <motion.tr
@@ -98,26 +103,40 @@ const MyVehicles = () => {
                     <td className="px-4 py-3">{vehicle.location}</td>
                     <td className="px-4 py-3 font-semibold">${vehicle.pricePerDay}</td>
                     <td className="px-4 py-3 flex gap-2">
-                      <Link to={`/vehiclesDetails/${vehicle._id}`} className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded">
+                      <Link
+                        to={`/vehiclesDetails/${vehicle._id}`}
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
+                      >
                         View
                       </Link>
-                      <Link to={`/update/${vehicle._id}`} className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">                    Update
+                      <Link
+                        to={`/update/${vehicle._id}`}
+                        className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded"
+                      >
+                        Update
                       </Link>
-                      <Link onClick={() => handelremove(vehicle._id)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
+                      <button
+                        onClick={() => handleRemove(vehicle._id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                      >
                         Delete
-                      </Link>
+                      </button>
                     </td>
                   </motion.tr>
                 ))
               ) : (
-                <tr><td colSpan="5" className="text-center py-6 text-gray-500">No vehicles found.</td></tr>
+                <tr>
+                  <td colSpan="5" className="text-center py-6 text-gray-500">
+                    No vehicles found.
+                  </td>
+                </tr>
               )}
             </AnimatePresence>
           </tbody>
         </table>
       </div>
 
-      {/* Card view for mobile */}
+      {/* Mobile Cards */}
       <div className="md:hidden grid gap-4">
         {loading ? (
           <div className="text-center py-6">Loading...</div>
@@ -132,17 +151,36 @@ const MyVehicles = () => {
                 animate="visible"
                 exit="exit"
               >
-                <img src={vehicle.coverImage} alt={vehicle.vehicleName} className="w-full h-40 object-cover rounded"/>
+                <img
+                  src={vehicle.coverImage}
+                  alt={vehicle.vehicleName}
+                  className="w-full h-40 object-cover rounded"
+                />
                 <div className="flex justify-between items-center">
-             <h3 className="font-bold text-lg">{vehicle.vehicleName}</h3>
+                  <h3 className="font-bold text-lg">{vehicle.vehicleName}</h3>
                   <span className="font-semibold text-sky-600">${vehicle.pricePerDay}</span>
                 </div>
-            <p className="text-gray-500">{vehicle.location}</p>
+                <p className="text-gray-500">{vehicle.location}</p>
                 <div className="flex gap-2 mt-2">
-                  <Link to={`/vehiclesDetails/${vehicle._id}`} className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded flex-1 text-center">View</Link>
-               <Link to={`/update/${vehicle._id}`} className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded flex-1 text-center">Update</Link>
-                  <button onClick={() => handelremove(vehicle._id)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded flex-1 text-center">Delete</button>
-      </div>
+                  <Link
+                    to={`/vehiclesDetails/${vehicle._id}`}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded flex-1 text-center"
+                  >
+                    View
+                  </Link>
+                  <Link
+                    to={`/update/${vehicle._id}`}
+                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded flex-1 text-center"
+                  >
+                    Update
+                  </Link>
+                  <button
+                    onClick={() => handleRemove(vehicle._id)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded flex-1 text-center"
+                  >
+                    Delete
+                  </button>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -155,3 +193,4 @@ const MyVehicles = () => {
 };
 
 export default MyVehicles;
+
