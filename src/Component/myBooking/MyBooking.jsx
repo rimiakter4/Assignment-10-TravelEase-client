@@ -12,16 +12,30 @@ const MyBooking = () => {
   const [loading, setLoading] = useState(true);
 
   // Fetch bookings
-  useEffect(() => {
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     setLoading(true);
+  //     fetch(`https://assignment-10-travelease.vercel.app/bookings?email=${user.email}`)
+  //       .then((res) => res.json())
+  //       .then((data) => setBookings(data))
+  //       .catch((err) => console.error(err))
+  //       .finally(() => setLoading(false));
+  //   }
+  // }, [user]);
+  // MyBooking.jsx (Frontend)
+useEffect(() => {
     if (user?.email) {
-      setLoading(true);
-      fetch(`https://assignment-10-travelease.vercel.app/bookings?email=${user.email}`)
-        .then((res) => res.json())
-        .then((data) => setBookings(data))
-        .catch((err) => console.error(err))
-        .finally(() => setLoading(false));
+        setLoading(true);
+        // URL-er sheshe ?email=${user.email} add kora hoyeche
+        fetch(`https://assignment-10-travelease.vercel.app/bookings?email=${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setBookings(data); // Ekhon sudhu ei user-er data-i ashbe
+            })
+            .catch((err) => console.error(err))
+            .finally(() => setLoading(false));
     }
-  }, [user]);
+}, [user?.email]); // User change hole jeno abar fetch hoy
 
   // Delete booking
   const handleDelete = (id) => {

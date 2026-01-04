@@ -7,6 +7,10 @@ import '../variable/variable.css';
 import DateFns from '../DateFns';
 import TopCatagories from '../TopCatagories/TopCatagories';
 import About from '../About/About';
+import Status from './Status';
+import Faq from './Faq';
+import CoreValue from './CoreValue';
+import Review from './Review';
 
 const Home = () => {
   const [theme, setTheme] = useState('light');
@@ -48,13 +52,20 @@ const Home = () => {
         loading={loading}
         refreshVehicles={fetchVehicles}
       />
-       <DateFns></DateFns>
-
-     
+      <div>
+        <Status></Status>
+      </div>
+      <Review></Review>
        <section className='w-11/12 mx-auto my-20'>
       <TopCatagories></TopCatagories>
       </section>
+      <section className='mb-10'>  <DateFns></DateFns> </section>
+     
 
+     
+      
+      <section><CoreValue></CoreValue></section>
+<div><Faq></Faq></div>
      <section>
        <About></About>
        </section>

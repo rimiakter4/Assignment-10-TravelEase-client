@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router';
-
+import { motion} from "framer-motion";
 const About = () => {
     return (
         <div>
@@ -14,12 +14,25 @@ const About = () => {
           TravelEase is a modern, user-friendly platform connecting travelers with vehicles for rent. Enjoy seamless booking, secure payments, and a reliable travel experience tailored for both hosts and users.
         </p>
     
-         <button
+         {/* <button
         
           className="bg-sky-500 hover:bg-sky-700 transition duration-300 text-white font-semibold px-6 py-3 rounded-lg shadow-lg"
         >
          <NavLink to=''>Learn More </NavLink> 
-        </button>
+        </button> */}
+         <NavLink to="/about">
+            <motion.button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-10 py-4 rounded-full shadow-[0_10px_30px_rgba(37,99,235,0.4)]  tracking-wider text-sm transition-all duration-300"
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: "#1d4ed8",
+                boxShadow: "0px 15px 40px rgba(37, 99, 235, 0.6)" 
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+           Learn More
+            </motion.button>
+          </NavLink>
       </div>
 
       <div className="absolute -top-10 -left-10 w-32 h-32 bg-purple-200 rounded-full opacity-30 blur-3xl"></div>
